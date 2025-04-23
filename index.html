@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modul Interaktif</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #0077a6;
+      padding-top: 60px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 999;
+    }
+
+    .sidebar.active {
+      transform: translateX(0);
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar a:hover {
+      background-color: #005f85;
+    }
+
+    .sidebar a i {
+      margin-right: 10px;
+    }
+
+    .menu-btn {
+      position: absolute;
+      left: 40px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1000;
+      background-color: #0077a6;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      left: 200px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+    }
+
+    .sidebar.active ~ .content {
+      margin-left: 250px;
+    }
+
+    .quit-btn {
+      position: absolute;
+      top: 15px;
+      right: 70px;
+      padding: 5px 10px;
+      border: none;
+      background-color: white;
+      color: #0077a6;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    .gambar {
+      display: block;
+      max-width: 100%;
+      height: 95dvh;
+      margin: auto;
+      margin-top: 5%;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0077a6;
+    }
+
+    /* Menyembunyikan tombol menu ketika sidebar aktif */
+    .menu-btn.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tombol Menu -->
+  <div class="menu-btn" id="menu-btn" onclick="toggleSidebar()">☰</div>
+  <img src="mudul.jpg" class="gambar" alt="Gambar Modul">
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">✕</button>
+    <a href="#kata-pengantar"><i class="icon">📄</i> kata pengantar</a>
+    <a href="#penulis"><i class="icon">🔍</i> penulis</a>
+    <a href="#bab1"><i class="icon">📚</i> bab1</a>
+    <a href="#bab2"><i class="icon">📚</i> bab2</a>
+    <a href="#bab3"><i class="icon">📚</i> bab3</a>
+    <a href="#bab4"><i class="icon">📚</i> bab4</a>
+    <a href="#soal"><i class="icon">📚</i> Kumpulan Soal</a>    
+    <a href="#tutorial"><i class="icon">📚</i> tutorial</a>
+  </div>
+
+  <!-- Konten Modul -->
+  <section id="kata-pengantar" class="content-section">
+    <h2 style="text-align: center;">Kata Pengantar</h2>
+    <p>
+      Puji syukur ke hadirat Tuhan Yang Maha Esa karena atas rahmat dan karunia-Nya, modul pembelajaran ini dapat disusun dan disajikan kepada para pembaca.
+    </p>
+    <p>
+      Modul ini disusun dengan tujuan untuk memberikan pemahaman yang lebih mendalam mengenai materi yang dibahas, serta sebagai acuan dalam proses belajar mandiri maupun bimbingan belajar bersama.
+    </p>
+    <p>Modul ini diharapkan dapat menjadi referensi yang bermanfaat bagi para pembaca dalam memahami konsep-konsep yang diajarkan.</p>
+    <p>
+    <p>
+      Penulis menyadari bahwa modul ini masih jauh dari sempurna. Oleh karena itu, kritik dan saran yang membangun sangat penulis harapkan demi perbaikan di masa mendatang.
+    </p>
+    <p>
+      Akhir kata, semoga modul ini dapat memberikan manfaat dan menjadi sarana yang efektif dalam menunjang proses belajar Anda.
+    </p>
+    <p style="text-align: center;">
+      <em>Selamat belajar!</em>
+    </p>
+  </section>
+  
+  <div id="penulis" class="content-section">
+    <h2 style="text-align: center;">Penulis</h2>
+    <p>
+      Modul ini disusun oleh tim penyusun yang terdiri dari pendidik dan praktisi pendidikan yang memiliki pengalaman dalam pengembangan bahan ajar serta pembelajaran interaktif. 
+      Penulis memiliki latar belakang akademik dan profesional yang mendukung dalam proses penyusunan materi yang relevan, aplikatif, dan sesuai dengan kebutuhan peserta didik masa kini.
+    </p>
+    <p>
+      Selama proses penyusunan, penulis mengacu pada kurikulum yang berlaku, referensi ilmiah terpercaya, serta memperhatikan pendekatan pembelajaran yang menarik dan mudah dipahami.
+      Penulis berharap modul ini dapat memberikan kontribusi nyata dalam meningkatkan kualitas pembelajaran dan pemahaman peserta didik.
+    </p>
+    <p>
+      Penulis juga membuka diri terhadap kritik dan saran yang membangun dari para pembaca demi penyempurnaan modul di masa mendatang. 
+      Semoga karya ini dapat bermanfaat bagi seluruh pihak yang menggunakannya.
+    </p>
+  </div>
+
+  <div id="bab1" class="content-section">
+    <h2 style="text-align: center;">Bab 1</h2>
+    <p>Pembahasan materi awal...</p>
+  </div>
+
+  <div id="bab2" class="content-section">
+    <h2 style="text-align: center;">Bab 2</h2>
+    <p>Pembahasan lanjutan...</p>
+  </div>
+
+  <div id="bab3" class="content-section">
+    <h2 style="text-align: center;">Bab 3</h2>
+    <p>Materi lebih dalam...</p>
+  </div>
+
+  <div id="bab4" class="content-section">
+    <h2 style="text-align: center;">Bab 4</h2>
+    <p>Studi kasus dan latihan...</p>
+  </div>
+
+  <div id="soal" class="content-section">
+    <h2 style="text-align: center;">Kumpulan Soal</h2>
+    <p>Latihan soal untuk menguji pemahaman Anda...</p>
+  </div>
+
+  <div id="tutorial" class="content-section">
+    <h2 style="text-align: center;">Tutorial</h2>
+    <p>Panduan praktis penggunaan modul ini...</p>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      // Mengaktifkan atau menonaktifkan sidebar
+      document.getElementById("sidebar").classList.toggle("active");
+      // Menyembunyikan atau menampilkan tombol menu
+      document.getElementById("menu-btn").classList.toggle("hidden");
+    }
+
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('sidebar').classList.remove('active');
+        document.getElementById("menu-btn").classList.remove("hidden");
+      });
+    });
+  </script>
+
+</body>
+</html>
